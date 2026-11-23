@@ -63,3 +63,8 @@ Hi guys, deploy DilaMD bot and enjoy using it.
  
 </div>
 
+
+
+### AI API configuration
+
+The AI plugin requires `GEMINI_API_KEY`, configured as a private environment variable on the host. Use the example template at [`.env.example`](.env.example); never commit the actual value. See [security notes](SECURITY.md) for credential rotation guidance.
