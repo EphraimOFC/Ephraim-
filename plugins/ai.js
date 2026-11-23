@@ -12,7 +12,9 @@ cmd({
 }, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
   try {
     // Define the new API URL with the new key
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyByitRjKUtDonuVtpJm1R-RSdPdFPf-tcY`;
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) return reply('AI provider is not configured.');
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${encodeURIComponent(apiKey)}`;
     
     // Prepare the body content for the API request
     const bodyContent = {
